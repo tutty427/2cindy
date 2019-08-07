@@ -1,1 +1,72 @@
-hello world
+<!DOCTYPE HTML>
+<html>  
+<head>  
+<title>2Cindy</title>  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+</head>  
+<body style="margin-left:350px">  
+    <canvas id="c"></canvas>  
+    <script>  
+        var b = document.body;  
+        var c = document.getElementsByTagName('canvas')[0];  
+        var a = c.getContext('2d');  
+        document.body.clientWidth;  
+    </script>  
+    <script>  
+  c.width = w = innerWidth;
+c.height = h = innerHeight;
+with(b.style) marginLeft = marginTop = 0,
+overflow = "hidden";
+a.font = "1.2em utf8";
+var e = Math,
+    g = e.random,
+    j = e.PI,
+    k = e.sin,
+    o = 1.7,
+    p = .7 * j,
+    q = r = u = 0,
+    v = 6,
+    z = -.05,
+    A = [],
+    B = .7 * h;
+setInterval(function () {
+        a.fillStyle = "hsl(210 ,100%," + (105 - 10 * p) + "%)";
+        a.fillRect(0, 0, w, h);
+        leafColor = "hsl(" + (118 * p - 127) + ",100%,";
+        C(w / 2, B, 0, 70, 0);
+        0 == u % 3 && (A.push({
+            x: 320 * g() + w / 2 - 160,
+            y: B - 270,
+            a: 3 * g()
+        }), 130 < A.length && (A = A.slice(1)));
+        for (i in A) {
+            f = A[i];
+            with(a) beginPath(),
+            arc(f.x, f.y, f.a, 0, 2 * j, 1),
+            fillStyle = leafColor + (35 * p + 29) + "%)",
+            fill();
+            f.y <= B && (f.y += f.a, f.x += k(u / 35))
+        }
+        2.1 < p && a.fillText("Best wish to my Cindy!(按回车)", w / 2 - 85, B + 50)
+        u++;
+        p -= r;
+        o -= q;
+        p < .4 * j && (r /= 1.016);
+        1.5 > o && (o = 1.5)
+    }, 40);
+
+function C(x, y, l, m, d) {
+        var s = x + m * k(l),
+            t = y - m * e.cos(l),
+            D = "#33" + 1300 * (d + 1);
+        d || (n = 0);
+        d > v - 3 && (D = leafColor + (85 - 35 * p + 17 * k(u / 5 - n++/d)/p) + "%)"); with(a) fillStyle = D, beginPath(), moveTo(x, y), lineTo(x + (12 - d), y), lineTo(s + (12 - d) / 2, t), fill(); d < v && (C(s, t, l - z * d - p, m / o, d + 1), C(s, t, l, m / (.9 * o), d + 1), C(s, t, l + z * d + p, m / o, d + 1))
+            }
+        document.onkeyup = function () {
+                q = 7E-4;
+                0 == r ? r = .006 : r = 0
+            };
+         
+    </script>  
+    </body>
+    </html>  
