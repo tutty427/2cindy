@@ -1,72 +1,164 @@
-<!DOCTYPE HTML>
-<html>  
-<head>  
-<title>2Cindy</title>  
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
-</head>  
-<body style="margin-left:350px">  
-    <canvas id="c"></canvas>  
-    <script>  
-        var b = document.body;  
-        var c = document.getElementsByTagName('canvas')[0];  
-        var a = c.getContext('2d');  
-        document.body.clientWidth;  
-    </script>  
-    <script>  
-  c.width = w = innerWidth;
-c.height = h = innerHeight;
-with(b.style) marginLeft = marginTop = 0,
-overflow = "hidden";
-a.font = "1.2em utf8";
-var e = Math,
-    g = e.random,
-    j = e.PI,
-    k = e.sin,
-    o = 1.7,
-    p = .7 * j,
-    q = r = u = 0,
-    v = 6,
-    z = -.05,
-    A = [],
-    B = .7 * h;
-setInterval(function () {
-        a.fillStyle = "hsl(210 ,100%," + (105 - 10 * p) + "%)";
-        a.fillRect(0, 0, w, h);
-        leafColor = "hsl(" + (118 * p - 127) + ",100%,";
-        C(w / 2, B, 0, 70, 0);
-        0 == u % 3 && (A.push({
-            x: 320 * g() + w / 2 - 160,
-            y: B - 270,
-            a: 3 * g()
-        }), 130 < A.length && (A = A.slice(1)));
-        for (i in A) {
-            f = A[i];
-            with(a) beginPath(),
-            arc(f.x, f.y, f.a, 0, 2 * j, 1),
-            fillStyle = leafColor + (35 * p + 29) + "%)",
-            fill();
-            f.y <= B && (f.y += f.a, f.x += k(u / 35))
-        }
-        2.1 < p && a.fillText("To Cindy!(按回车)", w / 2 - 85, B + 50)
-        u++;
-        p -= r;
-        o -= q;
-        p < .4 * j && (r /= 1.016);
-        1.5 > o && (o = 1.5)
-    }, 40);
 
-function C(x, y, l, m, d) {
-        var s = x + m * k(l),
-            t = y - m * e.cos(l),
-            D = "#33" + 1300 * (d + 1);
-        d || (n = 0);
-        d > v - 3 && (D = leafColor + (85 - 35 * p + 17 * k(u / 5 - n++/d)/p) + "%)"); with(a) fillStyle = D, beginPath(), moveTo(x, y), lineTo(x + (12 - d), y), lineTo(s + (12 - d) / 2, t), fill(); d < v && (C(s, t, l - z * d - p, m / o, d + 1), C(s, t, l, m / (.9 * o), d + 1), C(s, t, l + z * d + p, m / o, d + 1))
-            }
-        document.onkeyup = function () {
-                q = 7E-4;
-                0 == r ? r = .006 : r = 0
-            };
-         
-    </script>  
-    </body>
-    </html>  
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+<title>wow_计算</title>
+<script type="text/javascript">
+function count(){
+  var total_income = document.getElementById("total_income").value;
+  var tn_allowance = document.getElementById("tn_allowance").value;
+  var fire_allowance = document.getElementById("fire_allowance").value;
+  var dps_allowance = document.getElementById("dps_allowance").value;
+  var heal_allowance = document.getElementById("heal_allowance").value;
+  var other_allowance = document.getElementById("other_allowance").value;
+  var p_count = document.getElementById("p_count").value;
+  var tn_count = document.getElementById("tn_count").value;
+
+  var tn_total = parseInt(total_income * tn_allowance /100);
+  var tn_single = parseInt(tn_total/tn_count);
+  var normal_income = parseInt(total_income - tn_total - fire_allowance - dps_allowance - heal_allowance - other_allowance);
+  var normal_single = parseInt(normal_income / p_count);
+  var tn_income = parseInt(normal_single + tn_single)
+
+  document.getElementById("tn_total").value=tn_total;
+  document.getElementById("tn_single").value=tn_single;
+  document.getElementById("normal_income").value=normal_income;
+  document.getElementById("normal_single").value=normal_single;
+  document.getElementById("tn_income").value=tn_income;
+
+
+}
+
+function reset(){
+  document.getElementById("total_income").value="";
+  document.getElementById("tn_allowance").value="";
+  document.getElementById("fire_allowance").value="";
+  document.getElementById("dps_allowance").value="";
+  document.getElementById("heal_allowance").value="";
+  document.getElementById("other_allowance").value="";
+  document.getElementById("p_count").value="";
+  document.getElementById("tn_count").value="";
+  document.getElementById("tn_total").value="";
+  document.getElementById("tn_single").value="";
+  document.getElementById("normal_income").value="";
+  document.getElementById("normal_single").value="";
+  document.getElementById("tn_income").value="";
+}
+
+
+
+</script>
+</head>
+<body style="font-size:18px">
+    <table cellpadding=0 cellspacing=0 border=0>
+         <tr>
+             <td align=center width=50% valign=top>
+                    <table border="1px" cellpadding="2px" cellspacing="2px">
+                            <tr>
+                                    <td height="22">总收入</td>
+                                    <td height="22" align="left"><input name="total_income" type="text" id="total_income"></td>
+                                  </tr>
+                                  <tr>
+                                    <td height="22">T/N补贴(%)</td>
+                                    <td height="22" align="left"><input name="tn_allowance" type="text" id="tn_allowance" value="10">%</td>
+                                  </tr>
+                                  <tr>
+                                    <td height="22">灭火补贴</td>
+                                    <td height="22" align="left"><input name="fire_allowance" type="text" id="fire_allowance" value="140">
+                                  </tr>
+                                  <tr>
+                                    <td height="22">DPS排名补贴</td>
+                                    <td height="22" align="left"><input name="dps_allowance" type="text" id="dps_allowance" value="300" ></td>
+                                  </tr>
+                                  <tr>
+                                      <td height="22">治疗排名补贴</td>
+                                     <td height="22" align="left"><input name="heal_allowance" type="text" id="heal_allowance" value="100" ></td>
+                                  </tr>
+                                  <tr>
+                                      <td height="22">其他补贴</td>
+                                      <td height="22" align="left"><input name="other_allowance" type="text" id="other_allowance"></td>
+                                  </tr>
+                                  <tr>
+                                        <td height="22">总人数</td>
+                                        <td height="22" align="left"><input name="p_count" type="text" id="p_count"></td>
+                                    </tr>
+                                    <tr>
+                                            <td height="22">tn总人数</td>
+                                            <td height="22" align="left"><input name="tn_count" type="text" id="tn_count"></td>
+                                   </tr>
+                    </table>
+               
+            </td>
+                
+            <td valign=top>
+                    <table border="1px" cellpadding="2px" cellspacing="2px">
+                            <tr>
+                                    <td height="22">普通总工资</td>
+                                    <td height="22" align="left"><input name="normal_income" type="text" id="normal_income" readonly></td>
+                                    <td height="22">普通单人工资</td>
+                                    <td height="22" align="left"><input name="normal_single" type="text" id="normal_single" readonly></td>
+                                  </tr>
+                                  <tr>
+                                    <td height="22">T/N总补贴</td>
+                                    <td height="22" align="left"><input name="tn_total" type="text" id="tn_total" readonly></td>
+                                    <td height="22">T/N单人补贴</td>
+                                    <td height="22" align="left"><input name="tn_single" type="text" id="tn_single" readonly></td>
+                                  </tr>
+                                  <tr>
+                                    <td height="22">T/N 总工资</td>
+                                    <td height="22" align="left"><input name="tn_income" type="text" id="tn_income" readonly>
+                                  </tr>
+                    </table>
+            </td>
+            <td>
+                    <input type="button" value="计算" onclick="count()"/>
+                    <input type="button" value="重置" onclick="reset()"/>
+
+            </td>
+        </tr>
+    </table>    
+<!-- <table border="1px" cellpadding="2px" cellspacing="2px">
+        <tr>
+                <td width="150" height="22">总收入</td>
+                <td height="22" align="left"><input name="total_income" type="text" id="total_income"></td>
+              </tr>
+              <tr>
+                <td height="22">T/N补贴</td>
+                <td height="22" align="left"><input name="tn_allowance" type="text" id="tn_allowance"></td>
+              </tr>
+              <tr>
+                <td height="22">灭火补贴</td>
+                <td height="22" align="left"><input name="fire_allowance" type="text" id="fire_allowance">
+              </tr>
+              <tr>
+                <td height="22">DPS排名补贴</td>
+                <td height="22" align="left"><input name="dps_allowance" type="text" id="dps_allowance"></td>
+              </tr>
+              <tr>
+                  <td height="22">治疗排名补贴</td>
+                 <td height="22" align="left"><input name="heal_allowance" type="text" id="heal_allowance"></td>
+              </tr>
+              <tr>
+                  <td height="22">其他补贴</td>
+                  <td height="22" align="left"><input name="other_allowance" type="text" id="other_allowance"></td>
+              </tr>
+              <tr>
+                    <td height="22">总人数</td>
+                    <td height="22" align="left"><input name="p_count" type="text" id="p_count"></td>
+                </tr>
+                <tr>
+                        <td height="22">tn总人数</td>
+                        <td height="22" align="left"><input name="tn_count" type="text" id="tn_count"></td>
+                    </tr>
+</table> -->
+
+
+
+
+
+
+
+
+</body>
